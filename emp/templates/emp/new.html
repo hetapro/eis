@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Add New Employee</title>
+</head>
+<body>
+    <h2>Add New Employee Details</h2>
+    <form id="f1" action="{% url 'emp:New'%}" method="post">
+       {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="add" value="Add" />
+        <input type="reset" name="reset" value="RESET" />
+    </form>
+</body>
+</html>

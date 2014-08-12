@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>List of Employees</title>
+</head>
+<body>
+    <h2>List of Employees</h2>
+    <form id="f1" action="{% url 'emp:New'%}">
+        <input type="submit" name="submit1" id="new" value="Add New Employee?" />
+    </form>
+    <form id="f3" action="">
+        <input type="submit" name="submit1" id="new" value="Delete Employee Record(s)??" />
+    </form>
+    {% if empl %}
+    <from id="f2">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Sr.no</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email_id</th>
+                <th>Mob_no</th>
+                <th>Designation</th>
+            </tr>
+            {% for e1 in empl %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ e1.ename }}</td>
+                <td>{{ e1.age }}</td>
+                <td>{{ e1.emailid }}</td>
+                <td>{{ e1.mobno }}</td>
+                <td>{{ e1.designation }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </from>
+    {% else %}
+    <p> No data found </p>
+    {% endif %}
+</body>
+</html>

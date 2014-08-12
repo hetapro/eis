@@ -1,0 +1,44 @@
+{% from emp.models import Emp1 %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h2> Please select employee to delete</h2>
+{% if empl1 %}
+    <from action="{% url emp:delete %}" id="f2">
+        {% csrf_token %}
+        <table>
+            <tr>
+
+                <th>Sr.no</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email_id</th>
+                <th>Mob_no</th>
+                <th>Designation</th>
+                <th>Delete??</th>
+            </tr>
+
+            {% empl1=Emp1.objects.all()%}
+            {% for e1 in empl1 %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ e1.ename }}</td>
+                <td>{{ e1.age }}</td>
+                <td>{{ e1.emailid }}</td>
+                <td>{{ e1.mobno }}</td>
+                <td>{{ e1.designation }}</td>
+                <td><a href="{% url  e1.id%}">Delete??</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </from>
+    {% else %}
+    <p> No data found </p>
+    {% endif %}
+
+</body>
+</html>
