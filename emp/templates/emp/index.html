@@ -5,11 +5,16 @@
     <title>Home page</title>
 </head>
 <body>
+<center>
     <h2> Employee Information System</h2>
-    <form action="{% url 'emp:index' %}" method="post">
+    <fieldset><legend>Modules</legend>
+    <form action="{% url 'emp:index' %}" method="post" class="form-horizontal">
     <ul>
         <li><a href="{% url 'emp:List' %}">Employee Details</a></li>
+        <li><a href="{% url 'emp:List1' %}">Department Details</a></li>
     </ul>
     </form>
+        </fieldset>
+    </center>
 </body>
 </html>

@@ -4,6 +4,11 @@ from emp import views
 
 urlpatterns=patterns('',url(r'^$', views.IndexView.as_view(), name="index"),
                         url(r'^list/$', views.List.as_view(), name="List"),
+                        url(r'^list1/$', views.List1.as_view(), name="List1"),
                         url(r'^new/$', 'emp.views.new', name="New"),
-                        url(r'^delete/(\d+)/$', 'emp.views.delete',name="delete")
+                        url(r'^new1/$', 'emp.views.new1', name="New1"),
+                        url(r'^delete/(\d+)/$', 'emp.views.delete1',name="Delete"),
+                        url(r'^deldep/(\d+)/$', 'emp.views.deldep',name="Deldep"),
+                        url(r'^view/(\d+)/$', 'emp.views.view',name="View"),
+                       # url(r'^viewdetail/(\[A-z]+)/$', 'emp.views.viewdetail',name="Viewdetail")
                      )

@@ -2,20 +2,16 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <title>List of Employees</title>
 </head>
 <body>
+<center>
     <h2>List of Employees</h2>
-    <form id="f1" action="{% url 'emp:New'%}">
-        <input type="submit" name="submit1" id="new" value="Add New Employee?" />
-    </form>
-    <form id="f3" action="">
-        <input type="submit" name="submit1" id="new" value="Delete Employee Record(s)??" />
-    </form>
     {% if empl %}
-    <from id="f2">
+    <form id="f2">
         {% csrf_token %}
-        <table>
+        <table class="table table-bordered">
             <tr>
                 <th>Sr.no</th>
                 <th>Name</th>
@@ -23,6 +19,9 @@
                 <th>Email_id</th>
                 <th>Mob_no</th>
                 <th>Designation</th>
+                 <th>Department</th>
+                <th> </th>
+                <th> </th>
             </tr>
             {% for e1 in empl %}
             <tr>
@@ -32,12 +31,20 @@
                 <td>{{ e1.emailid }}</td>
                 <td>{{ e1.mobno }}</td>
                 <td>{{ e1.designation }}</td>
-            </tr>
+                <td>{{ e1.dep}}</td>
+                <td><a href="{% url 'emp:Delete' e1.id%}">Delete</a> </td>
+                <td><a href="{% url 'emp:View' e1.id%}">View Details</a></td>
+            </tr><tr></tr><tr></tr>
             {% endfor %}
         </table>
-    </from>
+    </form>
     {% else %}
-    <p> No data found </p>
+    <p> No data found </p><p></p><p></p>
     {% endif %}
+     <form id="f1" action="{% url 'emp:New' %}">
+         <a href="{% url 'emp:index' %}" class="">Back</a>
+       <input type="submit" name="submit1" id="new" value="Add New Employee?" class="btn" />
+    </form>
+</center>
 </body>
 </html>

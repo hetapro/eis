@@ -1,16 +1,38 @@
 <!DOCTYPE html>
+
+
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <title>Add New Employee</title>
 </head>
 <body>
-    <h2>Add New Employee Details</h2>
-    <form id="f1" action="{% url 'emp:New'%}" method="post">
+    {% csrf_token %}
+    <center>
+    <h2></h2>
+    <fieldset><legend>Add New Employee Detail</legend>
+    <form id="f1" action="{% url 'emp:New'%}" method="post" class="navbar-form">
+
        {% csrf_token %}
+        <table>
+        {% if d1 %}
         {{ form.as_p }}
-        <input type="submit" name="add" value="Add" />
-        <input type="reset" name="reset" value="RESET" />
+        </table>
+
+           <span class="label label-danger"> <a href="{% url 'emp:List' %}" class="">Back</a></span>
+        <input type="submit" name="add" value="Add" class="btn btn-primary" />
+        <input type="reset" name="reset" value="RESET" class="btn btn-primary" />
     </form>
+        {% else %}
+    <pre class="alert-info">
+        Currently There is no department yet.
+        First add Department details
+        Go to <a href='{% url 'emp:index' %}'>Home page</a>
+    </pre>
+    {% endif %}
+
+    </center>
+</fieldset>
 </body>
 </html>

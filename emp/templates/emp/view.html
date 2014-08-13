@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <title></title>
+</head>
+<body>
+<fieldset>
+<form method="post">
+    {% csrf_token %}
+    <center>
+    <h2>Detail of Employee</h2>
+    <table class="table ">
+        <tr></tr><tr></tr>
+        <tr><th>Name</th><td></td><th>{{ e2.ename }}</th></tr>
+        <tr><th>Age</th><td></td><th>{{ e2.age }}</th></tr>
+        <tr><th>Email id</th><td></td><th>{{ e2.emailid }}</th></tr>
+        <tr><th>Mobile No</th><td></td><th>{{ e2.mobno }}</th></tr>
+        <tr><th>Designation</th><td></td><th>{{ e2.designation }}</th></tr>
+        <tr><th>Department</th><td></td><th>{{ e2.dep }}</th></tr>
+    </table>
+    <a href="{% url 'emp:List' %}" class="">Back</a>
+    </center>
+</form>
+
+</body>
+</html>

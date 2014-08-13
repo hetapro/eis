@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <title>Department Detail</title>
+</head>
+<body>
+<center>
+    <h2>List of Department</h2>
+
+
+    {% if depl %}
+    <form id="f2">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Sr.no</th>
+                <th>Department_Name</th>
+                <th>View Employee details</th>
+                <th> Delete??</th>
+            </tr>
+            {% for d1 in depl %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ d1.dept }}</td>
+                <td><a href="">Department Details</a> </td>
+                <td><a href="{% url 'emp:Deldep' d1.id%}">Delete</a> </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+    {% else %}
+    <p> No data found </p>
+    {% endif %}
+ <form id="f1" action="{% url 'emp:New1'%}">
+     <span class="label label-danger"> <a href="{% url 'emp:index' %}" class="">Back</a></span>
+        <input type="submit" name="submit1" id="new" value="Add New Department?" />
+    </form>
+</center>
+</body>
+</html>
