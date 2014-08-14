@@ -70,6 +70,46 @@ def deldep(request, id):
     d1.delete()
     return HttpResponseRedirect(reverse('emp:List1'))
 
-def viewdetail(request,name):
-   d2=get_object_or_404(Emp1,dept=name)
-   return render(request,'emp/view.html', {'d2': d2})
+def viewdetail(request, id):
+    e3=Emp1.objects.filter(dep=id)
+    return render(request,'emp/view1.html', {'e3': e3})
+
+def edit1(request,id):
+    d1=Dep.objects.get(pk=id)
+    return render(request, 'emp/edit1.html', {'d1': d1})
+
+def edite(request,id):
+    e1=Emp1.objects.get(pk=id)
+    d1=Dep.objects.all()
+    return render(request, 'emp/edite.html', {'d1': d1, 'e1': e1})
+
+def editDep(request):
+    name = request.GET.get('dept')
+    id1 = request.GET.get('deid')
+    d1 = Dep.objects.get(pk=id1)
+    print d1.dept
+    d1.dept = name
+    d1.save()
+    return HttpResponseRedirect(reverse('emp:List1'))
+
+
+
+def editemp(request):
+    name = request.GET.get('e2')
+    name1 = request.GET.get('e3')
+    name2 = request.GET.get('e4')
+    name3 = request.GET.get('e5')
+    name4 = request.GET.get('e6')
+    name5 = request.GET.get('e7')
+    id1 = request.GET.get('eeid')
+    id=Dep.objects.get(dept=name5)
+    e1 = Emp1.objects.get(pk=id1)
+    e1.ename = name; e1.age=name1; e1.emailid=name2; e1.mobno=name3; e1.designation=name4; e1.dep_id=id;
+    e1.save()
+    return HttpResponseRedirect(reverse('emp:List'))
+
+
+
+
+
+

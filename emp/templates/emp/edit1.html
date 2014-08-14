@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <title>Add New Department</title>
+    <title>Edit Department</title>
 </head>
 <body>
     {% csrf_token %}
@@ -11,13 +11,15 @@
     <h2></h2>
 
     <fieldset >
-        <legend>Add New Department</legend>
-    <form id="f1" action="{% url 'emp:New1'%}" method="post">
+        <legend>Edit Department</legend>
+    <form id="f1" action="{% url 'emp:EditD' %}" method="get" >
        {% csrf_token %}
-        {{ form.as_p }}
+        Department:<input type="text" maxlength="30" name="dept" value="{{ d1.dept }}" />
+        <input type="hidden" value="{{ d1.id }}" name="deid">
+
         <span class="label label-danger"> <a href="{% url 'emp:List1' %}" class="">Back</a></span>
-        <input type="submit" name="add" value="Add" class="btn btn-primary" />
-        <input type="reset" name="reset" value="RESET" class="btn btn-primary" />
+        <input type="submit" name="update" value="Update" class="btn btn-primary" />
+
     </form>
         </fieldset>
         </center>
