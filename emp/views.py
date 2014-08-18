@@ -87,10 +87,19 @@ def editDep(request):
     name = request.GET.get('dept')
     id1 = request.GET.get('deid')
     d1 = Dep.objects.get(pk=id1)
-    print d1.dept
-    d1.dept = name
-    d1.save()
-    return HttpResponseRedirect(reverse('emp:List1'))
+    departments=Dep.objects.all()
+    flag=False
+    for d in departments:
+        if name==d.dept:
+            flag=True
+
+    if flag:
+        return render(request, 'emp/edit1.html', {'d1': d1, 'error_message':'This department already exists.!!'})
+    else:
+       d1.dept = name
+       d1.save()
+       return HttpResponseRedirect(reverse('emp:List1'))
+
 
 
 

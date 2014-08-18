@@ -9,7 +9,7 @@
     {% csrf_token %}
     <center>
     <h2></h2>
-
+    {% if error_message %}<p><strong>{{error_message}}</strong></p>{% endif %}
     <fieldset >
         <legend>Edit Department</legend>
     <form id="f1" action="{% url 'emp:EditD' %}" method="get" >

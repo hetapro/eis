@@ -5,7 +5,8 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <script type="javascript" src="{% static "js/val1" %}"></script>
+    <script type="text/javascript" src="{% static "js/val1.js" %}">
+        </script>
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Add New Employee</title>
@@ -15,7 +16,7 @@
     <center>
     <h2></h2>
     <fieldset><legend>Add New Employee Detail</legend>
-    <form id="f1" action="{% url 'emp:New'%}" method="post" class="navbar-form">
+    <form id="f1" action="{% url 'emp:New'%}" method="post" class="navbar-form" onsubmit="return valuechek();">
 
        {% csrf_token %}
 
@@ -26,7 +27,7 @@
 
            <span class="label label-danger"> <a href="{% url 'emp:List' %}" class="">Back</a></span>
         <input type="submit" name="add" value="Add" class="btn btn-primary" />
-        <input type="reset" name="reset" value="RESET" class="btn btn-primary" />
+        <input type="reset" name="reset" value="RESET" class="btn btn-primary"/>
     </form>
         {% else %}
     <pre class="alert-info">
