@@ -50,7 +50,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'eis.urls'
 
-#WSGI_APPLICATION = 'eis.wsgi.application'
+WSGI_APPLICATION = 'eis.wsgi.application'
 
 
 # Database
