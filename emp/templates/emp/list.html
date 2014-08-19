@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <title>List of Employees</title>
-</head>
-<body>
-<center>
-    <h2>List of Employees</h2>
+{% extends "base.html" %}
+{% block title %}List of Employee{% endblock title %}
+{% block content %}
+    <center>
+    <hr><hr><hr>
+    <h2 class="alert-warning">List of Employees</h2>
     {% if empl %}
     <form id="f2">
         {% csrf_token %}
@@ -41,12 +37,12 @@
         </table>
     </form>
     {% else %}
-    <p> No data found </p><p></p><p></p>
+    <p class="alert-info"> No data found </p><p></p><p></p>
     {% endif %}
      <form id="f1" action="{% url 'emp:New' %}">
-        <span class="label label-danger">  <a href="{% url 'emp:index' %}" class="">Back</a></span>
-       <input type="submit" name="submit1" id="new" value="Add New Employee?" class="btn" />
+        <span class="btn btn-primary">  <a href="{% url 'emp:index' %}" style="color: #ffffff">Back</a></span>
+       <input type="submit" name="submit1" id="new" value="Add New Employee?" class="btn btn-primary" />
     </form>
 </center>
-</body>
-</html>
+{% endblock content %}
+

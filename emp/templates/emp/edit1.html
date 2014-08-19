@@ -1,27 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <title>Edit Department</title>
-</head>
-<body>
-    {% csrf_token %}
+{% extends "base.html" %}
+{% block title %}List of Department{% endblock title %}
+{% block content %}
     <center>
-    <h2></h2>
-    {% if error_message %}<p><strong>{{error_message}}</strong></p>{% endif %}
+    <hr><hr><hr>
+   {% csrf_token %}
+
+    <h2 class="alert-warning">Edit Department</h2>
+    <hr>
+    {% if error_message %}<p class="alert-danger"><strong>{{error_message}}</strong></p>{% endif %}
+
     <fieldset >
-        <legend>Edit Department</legend>
+
     <form id="f1" action="{% url 'emp:EditD' %}" method="get" >
        {% csrf_token %}
         Department:<input type="text" maxlength="30" name="dept" value="{{ d1.dept }}" />
         <input type="hidden" value="{{ d1.id }}" name="deid">
 
-        <span class="label label-danger"> <a href="{% url 'emp:List1' %}" class="">Back</a></span>
+        <span class="btn btn-primary"> <a href="{% url 'emp:List1' %}" style="color: #ffffff">Back</a></span>
         <input type="submit" name="update" value="Update" class="btn btn-primary" />
 
     </form>
         </fieldset>
         </center>
-</body>
-</html>
+{% endblock content %}

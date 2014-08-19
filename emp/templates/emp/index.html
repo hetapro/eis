@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Home page</title>
-</head>
-<body>
-<center>
-    <h2> Employee Information System</h2>
-    <fieldset><legend>Modules</legend>
-    <form action="{% url 'emp:index' %}" method="post" class="form-horizontal">
+{% extends "base.html" %}
+{% block title %}Home page{% endblock title %}
+{% block detail %}
     <ul>
-        <li><a href="{% url 'emp:List' %}">Employee Details</a></li>
-        <li><a href="{% url 'emp:List1' %}">Department Details</a></li>
+        <li class="jumbotron"><a href="{% url 'emp:List' %}">Employee Details</a></li>
+        <li class="jumbotron"><a href="{% url 'emp:List1' %}">Department Details</a></li>
     </ul>
-    </form>
-        </fieldset>
-    </center>
-</body>
-</html>
+{% endblock detail %}

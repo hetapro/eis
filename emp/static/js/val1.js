@@ -13,7 +13,7 @@ function valuechek()
     var letters = /^[A-Za-z- ]+$/;
     if(!(ename.value.match(letters)))
     {
-      alert('Please input alphabet characters only');
+      alert('Please input alphabet characters only in name field');
      // document.getElementById('id_ena1').display="block";
       //document.getElementById('id_ena1').value="Please input alphabet characters only";
       ename.value="";
@@ -24,14 +24,14 @@ function valuechek()
 
     else if(isNaN(age.value))
     {
-        alert("Please enter digits only!! Characters are not allowed");
+        alert("Please enter digits only!! Characters are not allowed in age field");
         age.value="";
         age.focus();
         return false;
     }
     else if(isNaN(mob.value))
     {
-        alert("Please enter digits only");
+        alert("Please enter digits only in mobile number field");
         mob.value="";
         mob.focus();
         return false;
@@ -45,7 +45,7 @@ function valuechek()
     }
     else if(!(designation.value.match(letters)))
     {
-      alert('Please input alphabet characters only');
+      alert('Please input alphabet characters only in designation');
       designation.value=""
        designation.focus();
       return false;
