@@ -20,7 +20,7 @@
             {% for d1 in depl %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ d1.dept }}</td>
+                <td>{{ d1.department_name }}</td>
                 <td><a href="{% url 'emp:Viewdetail' d1.id%}">Department Details</a> </td>
                 <td><a href="{% url 'emp:Edit1' d1.id%}">Edit</a> </td>
                 <td><a href="{% url 'emp:Deldep' d1.id%}">Delete</a> </td>

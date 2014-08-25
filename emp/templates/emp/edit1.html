@@ -13,7 +13,7 @@
 
     <form id="f1" action="{% url 'emp:EditD' %}" method="get" >
        {% csrf_token %}
-        Department:<input type="text" maxlength="30" name="dept" value="{{ d1.dept }}" />
+        Department:<input type="text" maxlength="30" name="dept" value="{{ d1.department_name }}" />
         <input type="hidden" value="{{ d1.id }}" name="deid">
 
         <span class="btn btn-primary"> <a href="{% url 'emp:List1' %}" style="color: #ffffff">Back</a></span>

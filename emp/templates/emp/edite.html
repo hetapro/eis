@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Edit Employee detail{% endblock title %}
+{% block js %}<script type="text/javascript" src="{{ STATIC_URL }}js/val1.js">
+        </script> {% endblock %}
 {% block content %}
     <center>
     <hr><hr><hr>
     <h2 class="alert-warning">Edit Employee Details</h2><hr>
         {% csrf_token %}
-    <form id="f1" action="{% url 'emp:EditEmp' %}" method="get" >
+    <form id="f1" action="{% url 'emp:EditEmp' %}" method="get" onsubmit="return valueChek();" >
 
 
        {% csrf_token %}
@@ -16,7 +18,7 @@
         <tr><th> Mobile No:</th><td><input type="text" maxlength="30" name="e5" value="{{ e1.mobno }}" /></td></tr>
         <tr><th> Designation:</th><td><input type="text" maxlength="30" name="e6" value="{{ e1.designation }}" /></td></tr>
         <tr><th> Department:</th><td><select name="e7">{% for i in d1 %}
-        <option value="{{ i.dept }}" {%if i.id == e1.dep_id%}selected{% endif %}>{{ i.dept }}</option>
+        <option value="{{ i.department_name }}" {%if i.id == e1.department_id%}selected{% endif %}>{{ i.department_name }}</option>
         {% endfor %} </select></td></tr>
             <input type="hidden" value="{{ e1.id }}" name="eeid">
         </table>

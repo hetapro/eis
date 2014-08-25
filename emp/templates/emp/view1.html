@@ -3,7 +3,7 @@
 {% block content %}
     <center>
     <hr><hr><hr>
-     <h2 class="alert-warning">List of Employees</h2>
+     <h2 class="alert-warning">Employees of {{department.department_name}} department</h2>
     {% if e3 %}
     <form id="f2">
         {% csrf_token %}
@@ -15,7 +15,6 @@
                 <th>Email_id</th>
                 <th>Mob_no</th>
                 <th>Designation</th>
-                 <th>Department</th>
                 <th> </th>
 
             </tr>
@@ -27,7 +26,6 @@
                 <td>{{ e3.emailid }}</td>
                 <td>{{ e3.mobno }}</td>
                 <td>{{ e3.designation }}</td>
-                <td>{{ e3.dep}}</td>
                 <td><a href="{% url 'emp:View' e3.id%}">View Details</a></td>
             </tr><tr></tr><tr></tr>
             {% endfor %}

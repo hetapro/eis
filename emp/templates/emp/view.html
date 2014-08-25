@@ -13,9 +13,11 @@
         <tr><th>Email id</th><th>{{ e2.emailid }}</th></tr>
         <tr><th>Mobile No</th><th>{{ e2.mobno }}</th></tr>
         <tr><th>Designation</th><th>{{ e2.designation }}</th></tr>
-        <tr><th>Department</th><th>{{ e2.dep }}</th></tr>
+        <tr><th>Department</th><th>{{ e2.department }}</th></tr>
     </table>
     <span class="btn btn-primary"><a href="{% url 'emp:List' %}" style="color: #ffffff">Back</a></span>
+    <span class="btn btn-primary"><a href="{% url 'emp:Edite' e2.id %}" style="color: #ffffff">Edit Record</a></span>
+    <span class="btn btn-primary"><a href="{% url 'emp:Delete' e2.id %}" style="color: #ffffff">Delete Record</a></span>
 
 
 </form>

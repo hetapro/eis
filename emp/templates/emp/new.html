@@ -7,7 +7,7 @@
     <center>
     <hr><hr><hr>
     <h2 class="alert-warning">New Employee Detail</h2><hr>
-    <form id="f1" action="{% url 'emp:New'%}" method="post" class="navbar-form" onsubmit="return valuechek();">
+    <form id="f1" action="{% url 'emp:New'%}" method="post" class="navbar-form" onsubmit="return valueChek();">
 
        {% csrf_token %}
 
@@ -17,6 +17,7 @@
         {{ form.as_table }}
 
         </table>
+            <div id="error"></div>
         <span class="btn btn-primary"><a href="{% url 'emp:List' %}" style="color: #ffffff">Back</a></span>
         <input type="submit" name="add" value="Add" class="btn btn-primary" />
         <input type="reset" name="reset" value="RESET" class="btn btn-primary"/>

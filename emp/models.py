@@ -1,16 +1,16 @@
 from django.db import models
 
-class Dep(models.Model):
-    dept=models.CharField(max_length=200)
+class Department(models.Model):
+    department_name=models.CharField(max_length=200)
 
     def __unicode__(self):
-        return self.dept
+        return self.department_name
 
-class Emp1(models.Model):
+class Employee(models.Model):
     ename=models.CharField(max_length=200)
     age=models.IntegerField(default=0)
     emailid=models.EmailField(max_length=200)
     mobno=models.IntegerField()
     designation=models.CharField(max_length=20)
-    dep=models.ForeignKey(Dep, on_delete=models.CASCADE)
+    department=models.ForeignKey(Department, on_delete=models.CASCADE)
 
